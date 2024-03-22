@@ -8,6 +8,7 @@
 
         public int CurrentPage { get; set; }
 
+        //Calculation to dynamically find the total number of pages based on the total items and the set number of items per page
         public int TotalPages => (int)(Math.Ceiling((decimal)TotalItems / ItemsPerPage));
     }
 }

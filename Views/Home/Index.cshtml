@@ -1,16 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@* Access the data  *@
 @model BooksListViewModel
 
 <h1>The GBOAT (Greatest Books of all time) Store</h1>
 
     @foreach (Book b in Model.Books)
     {
+        @* pass the model to the BookSummary page so that cshtml page can use the data from the model *@
         <partial name="BookSummary" model="b" />
     }
 
+@* this is a dynamic div tag that builds the pagination links based on the number of books in the db by accessing the paginationinfo class*@
 <div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true" page-class="btn" 
     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-grp pull-right m-1">
 
